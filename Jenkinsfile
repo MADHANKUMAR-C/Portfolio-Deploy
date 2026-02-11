@@ -1,15 +1,11 @@
 pipeline {
   agent any
+
   environment {
-        KEY_PATH = "/var/lib/jenkins/ubuntu.pem"
-    }
+    KEY_PATH = "/var/lib/jenkins/ubuntu.pem"
+  }
 
   stages {
-    stage('Checkout') {
-      steps {
-        git 'https://github.com/MADHANKUMAR-C/Portfolio-Deploy.git'
-      }
-    }
 
     stage('Install Dependencies') {
       steps {
@@ -26,7 +22,8 @@ pipeline {
     stage('Deploy') {
       steps {
         sh '''
-          sudo cp -r build/* /var/www/html/
+          sudo rm -rf /var/www/html/*
+          sudo cp -r dist/* /var/www/html/
         '''
       }
     }
