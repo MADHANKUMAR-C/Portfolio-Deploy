@@ -24,12 +24,12 @@ pipeline {
     }
 
     stage('Deploy') {
-      steps {
-        sh '''
-          rm -rf /var/www/html/*
-          cp -r dist/* /var/www/html/
-        '''
-      }
-    }
+  steps {
+    sh '''
+      rm -rf /var/www/html/*
+      cp -r .next/* /var/www/html/
+    '''
+  }
+}
   }
 }
