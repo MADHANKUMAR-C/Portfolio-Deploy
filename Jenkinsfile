@@ -19,7 +19,7 @@ pipeline {
 
     stage('Build React App') {
       steps {
-        sh 'npm run build'
+        sh 'NODE_OPTIONS="--max-old-space-size=1024" npm run build'
       }
     }
 
