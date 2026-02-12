@@ -27,9 +27,9 @@ pipeline {
     stage('Deploy') {
   steps {
     sh '''
-      rm -rf /var/www/html/*
-      cp -r out/* /var/www/html/
-
+      pm2 stop portfolio || true
+      pm2 start npm --name "portfolio" -- start
+      pm2 save
     '''
   }
 }
