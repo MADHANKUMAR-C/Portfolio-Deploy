@@ -19,7 +19,7 @@ pipeline {
 
     stage('Build React App') {
       steps {
-        sh 'NODE_OPTIONS="--max-old-space-size=768" npm run build'
+        sh 'NEXT_TELEMETRY_DISABLED=1 NODE_OPTIONS="--max-old-space-size=768" npm run build'
       }
     }
 
