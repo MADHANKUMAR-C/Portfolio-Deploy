@@ -19,7 +19,8 @@ pipeline {
 
     stage('Build React App') {
       steps {
-        sh 'npm run build'
+        sh 'rm -rf .next'
+        sh 'NEXT_TELEMETRY_DISABLED=1 NODE_OPTIONS="--max-old-space-size=2048" NEXT_DISABLE_TURBOPACK=1 npm run build'
       }
     }
 
