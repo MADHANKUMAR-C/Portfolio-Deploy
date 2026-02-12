@@ -28,7 +28,8 @@ pipeline {
   steps {
     sh '''
       rm -rf /var/www/html/*
-      cp -r .next/* /var/www/html/
+      cp -r out/* /var/www/html/
+
     '''
   }
 }
